@@ -56,7 +56,7 @@ vendor_modify_images := boot
 #-----------------------------------------------------------------------------
 vendor_saved_apps := Bluetooth KeyChain Nfc Tag HTMLViewer UserDictionaryProvider BackupRestoreConfirmation \
                      FusedLocation PrintSpooler SharedStorageBackup  ExternalStorageProvider InputDevices \
-                     ProxyHandler Shell DefaultContainerService EasyAccessService WAPPushManager Stk TimeService qcrilmsgtunnel
+                     ProxyHandler Shell DefaultContainerService EasyAccessService WAPPushManager Stk
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
@@ -74,7 +74,7 @@ vendor_saved_apps := Bluetooth KeyChain Nfc Tag HTMLViewer UserDictionaryProvide
 # You need to decode android.policy.jar to the project directory (use apktool d android.policy.jar) first,
 # and then you can make it by:   make android.policy
 #-----------------------------------------------------------------------------
-vendor_modify_jars := android.policy framework services telephony-common wifi-service dpm
+vendor_modify_jars := android.policy framework services telephony-common wifi-service
 
 ##############################################################################
 # The value decides which board system directory you want to save.
@@ -96,7 +96,7 @@ board_saved_files := lib/libwebviewchromium.so bin/bootanimation bin/shutdownani
 # The default value is nothing.
 # You can configure the board system apk name in the value.
 #-----------------------------------------------------------------------------
-#board_remove_apps := LogReport
+board_remove_apps := LogReport
 
 ##############################################################################
 # The value decides which apk you want to modify, when the apk is based on the board system apk.
@@ -131,8 +131,9 @@ board_modify_apps := SystemUI Telecom TeleService
 # If 1, hide the soft mainkeys. If 0, display the soft mainkeys.
 # You should configure the property according to your device.
 override_property += \
-    qemu.hw.mainkeys=0
-
+    qemu.hw.mainkeys=0 \
+    ro.rom=dk,haohao3344 \
+    ro.xts.version=XTS_XXOS_Developer_V0.0
 
 # The value of the property ro.flyme.romer will be contained in the ota package name.
 # The default value is Unofficial.
@@ -176,9 +177,9 @@ USE_ASSERTIONS_IN_UPDATER_SCRIPT := false
 ##############################################################################
 # Defines whether generates a block-based OTA, system.img.dat in DAT format will be produced.
 # Will fall back to a file-based OTA if the target_files is older and doesn't support block-based OTAs.
-# Default: false
+# Default: true
 #-----------------------------------------------------------------------------
-#PRODUCE_BLOCK_BASED_OTA := true
+PRODUCE_BLOCK_BASED_OTA := false
 
 
 include $(PORT_BUILD)/main.mk

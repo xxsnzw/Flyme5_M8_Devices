@@ -28,12 +28,14 @@ ro.product.cpu.abilist=armeabi-v7a,armeabi
 ro.product.cpu.abilist32=armeabi-v7a,armeabi
 ro.product.cpu.abilist64=
 ro.product.manufacturer=htc
-ro.product.locale.language=en
-ro.product.locale.region=US
+ro.product.locale.language=zh
+ro.product.locale.region=CN
 ro.wifi.channels=
 ro.board.platform=msm8974
 ro.build.characteristics=default
 ro.cm.device=m8
+ro.product.model=HTC M8w
+ro.product.device=m8
 # end build properties
 
 #
